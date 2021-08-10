@@ -1,7 +1,7 @@
 var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
     pause = document.getElementById('pause'),
-    clear = document.getElementById('clear'),
+reset = document.getElementById('clear'),
     seconds = 0, minutes = 0, hours = 0,
     t;
 
@@ -25,17 +25,11 @@ function timer() {
 }
 timer();
 
-
-/* Start button */
 start.onclick = timer;
-
-/* Stop button */
 pause.onclick = function() {
     clearTimeout(t);
 }
-
-/* Clear button */
-clear.onclick = function() {
+reset.onclick = function() {
     h1.textContent = "00:00:00";
     seconds = 0; minutes = 0; hours = 0;
 }
