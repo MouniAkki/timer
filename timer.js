@@ -1,4 +1,4 @@
-class Timer {
+class Stopwatch {
     constructor(id, delay=100) { //Delay in ms
       this.state = "paused";
       this.delay = delay;
@@ -10,12 +10,12 @@ class Timer {
       var hours   = Math.floor(ms / 3600000);
       var minutes = Math.floor((ms - (hours * 3600000)) / 60000);
       var seconds = Math.floor((ms - (hours * 3600000) - (minutes * 60000)) / 1000);
-      var ds = Math.floor((ms - (hours * 3600000) - (minutes * 60000) - (seconds * 1000))/100);
+    
   
       if (hours   < 10) {hours   = "0"+hours;}
       if (minutes < 10) {minutes = "0"+minutes;}
       if (seconds < 10) {seconds = "0"+seconds;}
-      return hours+':'+minutes+':'+seconds+'.'+ds;
+      return hours+':'+minutes+':'+seconds;
     }
     
       update() {
@@ -24,7 +24,6 @@ class Timer {
       }
       this.display.innerHTML = this.formatTime(this.value);
     }
-    
     start() {
       if (this.state=="paused") {
         this.state="running";
@@ -52,4 +51,4 @@ class Timer {
     }
   }
   
-  timer = new Timer("timer");
+  stopwatch = new Stopwatch("stopwatch");
